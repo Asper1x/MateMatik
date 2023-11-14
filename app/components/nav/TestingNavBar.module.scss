@@ -1,0 +1,91 @@
+@import './UserNavbar.module.scss';
+
+.trans {
+	li {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		text-align: center;
+		position: relative;
+
+		a {
+			transition: 950ms;
+			padding-right: 100%;
+		}
+		p {
+			font-size: large;
+			max-height: 0;
+		}
+
+		h2 {
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translate(0, -50%);
+
+			background-color: rgb(var(--background-primary-rgb));
+			padding: 10px;
+			border-radius: var(--border-radius);
+
+			text-align: center;
+			font-size: x-large;
+		}
+	}
+}
+
+.trans_activate {
+	@extend .trans;
+	align-items: center;
+
+	li > a {
+		padding-right: 0;
+	}
+
+	li > p {
+		opacity: 0;
+		animation-delay: 950ms;
+		animation-duration: 1500ms;
+		animation-name: bounceInDown;
+		animation-fill-mode: forwards;
+		animation-timing-function: ease-out;
+	}
+}
+
+@keyframes bounceInDown {
+	0% {
+		opacity: 0;
+		max-height: 0;
+	}
+	100% {
+		opacity: 1;
+		max-height: 50px;
+	}
+}
+
+/*
+
+li {
+		width: 100%;
+		text-align: center;
+
+		a {
+			transition: 950ms;
+			padding-right: 0;
+		}
+		p {
+			font-size: large;
+			opacity: 0;
+			max-height: 0;
+			animation-delay: 950ms;
+			animation-duration: 1500ms;
+			animation-name: bounceInDown;
+			animation-fill-mode: forwards;
+			animation-timing-function: ease-out;
+		}
+
+		h2 {
+			float: right;
+		}
+	}
+
+*/

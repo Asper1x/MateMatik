@@ -1,0 +1,35 @@
+{
+	"host": {
+		"name": "МатеМатик"
+	},
+
+	"nav": {
+		"greeting": "Hello",
+		"problems": "Problems",
+		"myResults": "My results"
+	},
+
+	"errors": {
+		"testNotFounded": "Testing has already completed or is invalid",
+		"testInProgress": "Testing in progress"
+	},
+
+	"placeholders": {
+		"input": {
+			"username": "Type your username"
+		},
+		"button": {
+			"submit": "Submit"
+		}
+	},
+
+	"pages": {
+		"finished": {
+			"completedBy": "Completed By",
+			"timeElapsed": "Task completion time",
+			"numberOfTasks": "The number of tasks",
+			"correctAnswers": "Correct answers",
+			"mark": "Mark"
+		}
+	}
+}
