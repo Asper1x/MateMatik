@@ -1,0 +1,104 @@
+.finished {
+	display: flex;
+	justify-content: space-between;
+	padding: 20px;
+
+	background-color: rgb(var(--background-secondary-rgb));
+
+	margin-top: 10px;
+	border-radius: var(--border-radius);
+
+	.information {
+		display: flex;
+		flex-direction: column;
+		gap: 7px;
+		flex: 1;
+
+		overflow: hidden;
+
+		p {
+			font-size: large;
+		}
+		h1,
+		h3 {
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+	}
+
+	.thumb {
+		border: 2px solid rgb(var(--background-primary-rgb));
+		width: 250px;
+		height: 250px;
+	}
+
+	.answers {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.answer {
+		display: flex;
+
+		margin-right: auto;
+		background-color: rgb(var(--background-primary-rgb));
+		border-radius: var(--border-radius);
+
+		gap: 0.5rem;
+
+		.user_answer {
+			padding: 15px;
+
+			font-size: 185%;
+		}
+
+		.solution {
+			display: flex;
+			justify-content: center;
+			align-content: center;
+			flex-direction: column;
+
+			padding: 5px;
+			font-size: 185%;
+			font-family: var(--font-mono);
+			color: green;
+			background-color: rgb(var(--background-secondary-rgb), 0.5);
+		}
+	}
+}
+
+.finished_nav {
+	a {
+		padding-right: 0 !important;
+	}
+	p {
+		opacity: 1 !important;
+		max-height: 50px !important;
+
+		animation-delay: 0ms !important;
+		animation-name: blink !important;
+		animation-duration: 2s !important;
+		animation-iteration-count: infinite !important;
+
+		animation-timing-function: cubic-bezier(
+			0.68,
+			-0.55,
+			0.27,
+			1.55
+		) !important;
+	}
+}
+
+@keyframes blink {
+	0% {
+		color: transparent;
+	}
+	50% {
+		color: inherit;
+	}
+	100% {
+		color: transparent;
+	}
+}

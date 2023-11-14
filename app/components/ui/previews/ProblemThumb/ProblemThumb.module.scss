@@ -1,0 +1,11 @@
+.background {
+	display: flex;
+	color: black;
+	height: 100%;
+	border-radius: var(--border-radius);
+	justify-content: center;
+	align-items: center;
+	font-family: var(--font-mono);
+
+	font-size: 80px;
+}

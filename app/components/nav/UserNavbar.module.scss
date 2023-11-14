@@ -1,0 +1,28 @@
+.nav_bar {
+  width: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+
+  border-bottom: 3px solid rgb(var(--primary-border-rgb));
+  border-radius: 3px;
+
+  background-color: rgb(var(--background-secondary-rgb));
+
+  ul {
+    margin: 0 auto 0 auto;
+
+    display: flex;
+    gap: 1.5rem;
+
+    list-style-type: none;
+
+    font-size: x-large;
+
+    align-items: center;
+  }
+
+  .btn_back {
+    font-size: xx-large;
+  }
+}

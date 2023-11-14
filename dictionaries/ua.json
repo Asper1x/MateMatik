@@ -1,0 +1,46 @@
+{
+	"host": {
+		"name": "МатеМатик"
+	},
+
+	"nav": {
+		"greeting": "Привіт",
+		"problems": "Задачі",
+		"myResults": "Мої результати"
+	},
+
+	"tags": {
+		"hard": "важко",
+		"medium": "середньо",
+		"easy": "легко",
+
+		"divide": "ділення",
+		"addition": "додавання",
+		"multiplication": "множення",
+		"subtraction": "віднімання"
+	},
+
+	"errors": {
+		"testNotFounded": "Тестування вже закінчено або недійсне",
+		"testInProgress": "Тестування ще триває"
+	},
+
+	"placeholders": {
+		"input": {
+			"username": "Введіть ваше ім'я користувача"
+		},
+		"button": {
+			"submit": "Підтвердити"
+		}
+	},
+
+	"pages": {
+		"finished": {
+			"completedBy": "Закінчено",
+			"timeElapsed": "Закінчено за",
+			"numberOfTasks": "Кількість завдань",
+			"correctAnswers": "Кількість правильних відповідей",
+			"mark": "Оцінка"
+		}
+	}
+}

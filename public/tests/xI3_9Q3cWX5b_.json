@@ -1,0 +1,46 @@
+{
+	"tests": [
+		{
+			"floor": -10,
+			"ceil": 10,
+			"vars": ["n1", "n2", "z1", "z2"],
+			"equation": "n1 + n2 - z1 + z2"
+		},
+		{
+			"floor": -10,
+			"ceil": 10,
+			"vars": ["n1", "n2", "z1", "z2"],
+			"equation": "n1 + n2 - z1 + z2"
+		},
+		{
+			"floor": -10,
+			"ceil": 10,
+			"vars": ["n1", "n2", "z1", "z2"],
+			"equation": "n1 + n2 - z1 + z2"
+		},
+		{
+			"floor": -10,
+			"ceil": 10,
+			"vars": ["n1", "n2", "z1", "z2"],
+			"equation": "n1 + n2 - z1 + z2"
+		},
+		{
+			"floor": -10,
+			"ceil": 10,
+			"vars": ["n1", "n2", "z1", "z2"],
+			"equation": "n1 + n2 - z1 + z2"
+		},
+		{
+			"floor": -10,
+			"ceil": 10,
+			"vars": ["n1", "n2", "z1", "z2"],
+			"equation": "n1 + n2 - z1 + z2"
+		},
+		{
+			"floor": -10,
+			"ceil": 10,
+			"vars": ["n1", "n2", "z1", "z2"],
+			"equation": "n1 + n2 - z1 + z2"
+		}
+	]
+}

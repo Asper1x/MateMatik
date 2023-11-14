@@ -1,0 +1,42 @@
+.mod_container {
+	margin-top: 10px;
+	padding: 30px 0 30px 0;
+	display: flex;
+	justify-content: center;
+	background-color: rgb(var(--background-secondary-rgb));
+	border-radius: 12px;
+
+	overflow: hidden;
+}
+
+.input_answer {
+	margin: auto 0 auto 0;
+
+	width: 17%;
+
+	.input_area {
+		display: block;
+		line-height: 2rem;
+		font-size: xx-large;
+		width: 100%;
+
+		outline: none;
+		font-family: var(--font-mono);
+
+		background-color: rgb(var(--background-primary-rgb));
+		padding: 10px 16px 10px 16px;
+		border: 0;
+		border-radius: var(--border-radius);
+
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+
+		&[type='number'] {
+			-moz-appearance: textfield;
+			appearance: textfield;
+		}
+	}
+}
