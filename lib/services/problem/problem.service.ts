@@ -2,6 +2,7 @@ import { IGetProblem, ICreateProblem, ITest } from './problem.interface';
 import prisma from '@/lib/prisma';
 import { nanoid } from 'nanoid';
 import { promises as fs } from 'fs';
+import path from 'path';
 
 const ProblemsService = {
 	get(data: IGetProblem) {
@@ -39,10 +40,15 @@ const ProblemsService = {
 			return null;
 		}
 
-		const file = await fs.readFile(
-			process.cwd() + `/public/tests/${id}.json`,
-			'utf8',
+		const testPath = path.join(
+			process.cwd(),
+			'public',
+			'tests',
+			`${id}.json`,
 		);
+
+		const file = await fs.readFile(testPath, 'utf8');
+
 		const json = JSON.parse(file);
 
 		return json.tests as ITest[];
