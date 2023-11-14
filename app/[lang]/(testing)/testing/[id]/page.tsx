@@ -28,7 +28,8 @@ export default async function TestingPage({
 		test = (await ProblemsService.load(testing.problemId))?.map(
 			TestUtils.autoGen.bind(TestUtils),
 		);
-	} catch (_) {
+	} catch (e: any) {
+		console.log(e);
 		testing = undefined;
 		HOSTNAME = null;
 		test = undefined;
