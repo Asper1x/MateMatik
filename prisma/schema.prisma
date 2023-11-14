@@ -14,6 +14,7 @@ model Problem {
   publicId    String    @id @map("_id")
   title       String
   description String
+  maxTime     Int
   tagNames    String[]
   tags        Tag[]     @relation(fields: [tagNames], references: [name])
   testings    Testing[]

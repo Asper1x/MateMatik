@@ -34,6 +34,8 @@ export default async function TestingPage({
 		test = undefined;
 	}
 
+	console.log(testing, HOSTNAME, test);
+
 	return testing && HOSTNAME && test ? (
 		<>
 			{testing.answers.length >= test.length ? (

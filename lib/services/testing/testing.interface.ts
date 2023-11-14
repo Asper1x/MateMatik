@@ -8,4 +8,5 @@ export interface ITesting extends IStartTesting {
 	answers: string[];
 	started: Date;
 	updated: Date;
+	maxTime: number;
 }
