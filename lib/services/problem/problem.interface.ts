@@ -12,7 +12,7 @@ export interface ICreateProblem {
 	title: string;
 	description: string;
 	tagNames: string[];
-	maxTime: number;
+	maxTime?: number;
 }
 
 export interface IProblem extends ICreateProblem {

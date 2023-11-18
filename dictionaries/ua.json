@@ -41,6 +41,12 @@
 			"numberOfTasks": "Кількість завдань",
 			"correctAnswers": "Кількість правильних відповідей",
 			"mark": "Оцінка"
+		},
+		"results": {
+			"completedBy": "Закінчено",
+			"timeElapsed": "Закінчено за",
+			"taskName": "Назва завдання",
+			"mark": "Оцінка"
 		}
 	}
 }

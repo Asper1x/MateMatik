@@ -3,7 +3,6 @@
 import prisma from '@/lib/prisma';
 import ProblemsService from '@/lib/services/problem/problem.service';
 import { TestingService } from '@/lib/services/testing/testing.service';
-import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
 export async function AStartTesting(problemId: string, formData: FormData) {
@@ -24,9 +23,16 @@ export async function ASendAnswer(
 ) {
 	const testing = await prisma.testing.findUnique({
 		where: { id: testingId },
+		include: { problem: true },
 	});
 
-	if (!testing) {
+	if (
+		!testing ||
+		!testing.started ||
+		(testing.problem.maxTime &&
+			testing.started.getTime() + testing.problem.maxTime * 1000 <
+				Date.now())
+	) {
 		return;
 	}
 
@@ -43,4 +49,16 @@ export async function ASendAnswer(
 		await TestingService.sendAnswer(testingId, question, answer);
 	else if (test && testing.answers.length >= test.length)
 		redirect(`${testingId}`);
+}
+
+export async function ARegister(id: string) {
+	return prisma.testing.updateMany({
+		where: {
+			id,
+			started: { isSet: false },
+		},
+		data: {
+			started: new Date(),
+		},
+	});
 }

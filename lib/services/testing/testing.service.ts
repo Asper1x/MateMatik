@@ -15,8 +15,13 @@ export const TestingService = {
 		});
 	},
 
-	async getTesting(id: string) {
-		return <ITesting>await prisma.testing.findUnique({ where: { id } });
+	async getTesting(id: string, include = false) {
+		return <ITesting>(
+			await prisma.testing.findUnique({
+				where: { id },
+				include: { problem: include },
+			})
+		);
 	},
 
 	sendAnswer(id: string, problem: string, answer: string) {

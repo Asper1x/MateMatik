@@ -15,8 +15,8 @@ type VarsValue = Record<string, number>;
 
 export const TestUtils = {
 	getRandomArbitrary({ floor: min, ceil: max }: TestMeta) {
-		min = Math.ceil((min ??= -1000));
-		max = Math.floor((max ??= 1000));
+		min = Math.ceil(min ?? -1000);
+		max = Math.floor(max ?? 1000);
 		return Math.floor(Math.random() * (max - min) + min);
 	},
 

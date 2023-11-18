@@ -21,4 +21,20 @@ export const DateUtils = {
 			seconds: Math.floor((timespan / SECOND) % 60),
 		};
 	},
+
+	format(stamp: TimeStamp) {
+		const { days, hours, minutes, seconds } = stamp;
+		const arr = [days, hours, minutes, seconds];
+		const result: string[] = arr.flatMap((val) =>
+			val > 0 ? [val.toString().padStart(2, '0')] : [],
+		);
+
+		return result.join(':');
+	},
 };
+/*
+
+								{hours!.toString().padStart(2, '0')}:
+								{minutes!.toString().padStart(2, '0')}:
+								{seconds!.toString().padStart(2, '0')}
+*/

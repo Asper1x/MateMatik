@@ -1,9 +1,6 @@
 import { IProblem } from '@/lib/services/problem/problem.interface';
 import styles from './ProblemPreview.module.scss';
 import ProblemTag from '../../tag/ProblemTag';
-import Icon, { IconName } from '../../icon/Icon';
-import { TagProperties } from '@/app/[lang]/config/tag-types';
-import { CSSProperties } from 'react';
 import ModalButton from './modal-button/ModalButton';
 import { getTranslation } from '@/app/[lang]/localize';
 import ProblemThumb from '../ProblemThumb/ProblemThumb';

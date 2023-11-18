@@ -4,7 +4,7 @@
 	display: flex;
 	flex-direction: column;
 
-	box-shadow: 0 0 10px 0 rgb(var(--box-shadow-rgb));
+	box-shadow: var(--border-shadow);
 	position: relative;
 
 	.tags_container {

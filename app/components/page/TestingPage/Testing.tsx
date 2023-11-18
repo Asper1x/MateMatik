@@ -4,12 +4,11 @@ import { ITesting } from '@/lib/services/testing/testing.interface';
 import clsx from 'clsx';
 import styles from './Testing.module.scss';
 import UserKeyboard from '../../ui/keyboard/Keyboard';
-import { useRef, useState } from 'react';
-import { ASendAnswer } from '@/app/actions/testing/testing.action';
+import { useEffect, useRef, useState } from 'react';
+import { ARegister, ASendAnswer } from '@/app/actions/testing/testing.action';
 import { MathJax, MathJax3Config, MathJaxContext } from 'better-react-mathjax';
 import TestingNavbar from '../../nav/TestingNavBar';
 import { useRouter } from 'next/navigation';
-import MathFormatter from '../../ui/math-formatter/MathFormatter';
 
 const config: MathJax3Config = {
 	loader: { load: ['input/asciimath'] },
@@ -50,15 +49,22 @@ export default function TestingPage({
 		event.preventDefault();
 	};
 
+	useEffect(() => {
+		if (!testing.started) {
+			ARegister(testing.id);
+		}
+	});
+
 	return (
 		<>
 			<TestingNavbar
-				startedDate={testing.started}
+				startedDate={testing.started ?? new Date()}
 				hostName={HOSTNAME}
 				stats={{
 					total: test.length,
 					done: testing.answers.length + 1,
 				}}
+				maxTime={testing.problem?.maxTime}
 			/>
 			<div className={clsx('container', styles.mod_container)}>
 				<MathJaxContext config={config}>

@@ -5,13 +5,20 @@ const MINUTE = SECOND * 60;
 const HOUR = MINUTE * 60;
 const DAY = HOUR * 24;
 
-export default function useTimer(deadline: Date, interval = SECOND) {
-	const [timespan, setTimespan] = useState(Date.now() - deadline.getTime());
+export default function useTimer(
+	deadline: Date,
+	start = Date.now(),
+	interval = SECOND,
+	backward?: boolean,
+) {
+	const [timespan, setTimespan] = useState(start - deadline.getTime());
 
 	if (interval >= 0) {
 		useEffect(() => {
 			const intervalId = setInterval(() => {
-				setTimespan((_timespan) => _timespan + interval);
+				setTimespan(
+					(_timespan) => _timespan + interval * (backward ? -1 : 1),
+				);
 			}, interval);
 
 			return () => {

@@ -30,6 +30,12 @@
 			"numberOfTasks": "The number of tasks",
 			"correctAnswers": "Correct answers",
 			"mark": "Mark"
+		},
+		"results": {
+			"completedBy": "Completed By",
+			"timeElapsed": "Task completion time",
+			"taskName": "Task name",
+			"mark": "Mark"
 		}
 	}
 }

@@ -14,7 +14,7 @@ model Problem {
   publicId    String    @id @map("_id")
   title       String
   description String
-  maxTime     Int
+  maxTime     Int?
   tagNames    String[]
   tags        Tag[]     @relation(fields: [tagNames], references: [name])
   testings    Testing[]
@@ -30,7 +30,7 @@ model Testing {
   id        String  @id @map("_id")
   answers   String[]
   userName  String
-  started   DateTime @default(now())
+  started   DateTime?
   updated   DateTime @updatedAt
   problemId String
   problem   Problem @relation(fields: [problemId], references: [publicId])

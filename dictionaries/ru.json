@@ -41,6 +41,12 @@
 			"numberOfTasks": "Количество задач",
 			"correctAnswers": "Правильных ответов",
 			"mark": "Оценка"
+		},
+		"results": {
+			"completedBy": "Выполнено",
+			"timeElapsed": "Выполнено за",
+			"taskName": "Название задания",
+			"mark": "Оценка"
 		}
 	}
 }

@@ -23,23 +23,24 @@ export default async function TestingPage({
 	let test: string[] | undefined;
 
 	try {
-		testing = await TestingService.getTesting(params.id);
+		testing = await TestingService.getTesting(params.id, true);
 		[HOSTNAME] = await getTranslation(params.lang, 'host.name');
 		test = (await ProblemsService.load(testing.problemId))?.map(
 			TestUtils.autoGen.bind(TestUtils),
 		);
 	} catch (e: any) {
-		console.log(e);
 		testing = undefined;
 		HOSTNAME = null;
 		test = undefined;
 	}
 
-	console.log(testing, HOSTNAME, test);
-
 	return testing && HOSTNAME && test ? (
 		<>
-			{testing.answers.length >= test.length ? (
+			{testing.answers.length >= test.length ||
+			(testing.started &&
+				testing.problem?.maxTime &&
+				testing.started.getTime() <=
+					Date.now() + testing.problem?.maxTime * 1000) ? (
 				<Finished testing={testing} test={test} lang={params.lang} />
 			) : (
 				<Testing testing={testing} test={test} HOSTNAME={HOSTNAME} />

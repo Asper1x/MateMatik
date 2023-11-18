@@ -10,11 +10,18 @@ const ProblemsService = {
 			? { tagNames: { hasEvery: data.prompt.tagNames } }
 			: { tagNames: undefined };
 
-		return prisma.problem.findMany({
-			where: { ...data.prompt, ...tags },
-			take: data.take,
-			skip: data.take * (data.page - 1),
-		});
+		return prisma.problem
+			.findMany({
+				where: { ...data.prompt, ...tags },
+				take: data.take,
+				skip: data.take * (data.page - 1),
+			})
+			.then((value) =>
+				value.map((problem) => ({
+					...problem,
+					maxTime: problem.maxTime ?? undefined,
+				})),
+			);
 	},
 
 	create(data: ICreateProblem) {

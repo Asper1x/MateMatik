@@ -6,7 +6,8 @@ import { Caveat } from 'next/font/google';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import useTimer from '@/app/hooks/timer/useTimer';
-import { TimeStamp } from '@/lib/utils/test/DateUtils';
+import { DateUtils, TimeStamp } from '@/lib/utils/test/DateUtils';
+import { useRouter } from 'next/navigation';
 
 const caveat = Caveat({ subsets: ['latin'], weight: '700', display: 'swap' });
 
@@ -16,15 +17,31 @@ export default function TestingNavbar({
 	stats,
 	className,
 	timeStamp,
+	maxTime,
 }: {
 	hostName: string;
 	startedDate: Date;
 	stats: { done: number; total: number };
 	className?: string;
 	timeStamp?: TimeStamp;
+	maxTime?: number;
 }) {
 	const [activate, setActivate] = useState(false);
-	const { hours, minutes, seconds } = (timeStamp ??= useTimer(startedDate));
+	const { refresh } = useRouter();
+	const usingDate = new Date(startedDate.getTime() + (maxTime ?? 0) * 1000);
+	let stamp;
+
+	if (timeStamp) {
+		stamp = timeStamp;
+	} else {
+		if (!!maxTime) {
+			stamp = useTimer(new Date(), usingDate.getTime(), 1000, true);
+			if (stamp.days + stamp.hours + stamp.minutes + stamp.seconds <= 0)
+				refresh();
+		} else {
+			stamp = useTimer(usingDate, Date.now(), 1000, false);
+		}
+	}
 
 	useEffect(() => {
 		setActivate(true);
@@ -46,20 +63,10 @@ export default function TestingNavbar({
 						{hostName}
 					</Link>
 					<p>
-						{timeStamp ? (
-							activate && (
-								<>
-									{hours.toString().padStart(2, '0')}:
-									{minutes.toString().padStart(2, '0')}:
-									{seconds.toString().padStart(2, '0')}
-								</>
-							)
+						{!timeStamp ? (
+							activate && <>{DateUtils.format(stamp)}</>
 						) : (
-							<>
-								{hours.toString().padStart(2, '0')}:
-								{minutes.toString().padStart(2, '0')}:
-								{seconds.toString().padStart(2, '0')}
-							</>
+							<>{DateUtils.format(stamp)}</>
 						)}
 					</p>
 					<h2>{`${stats.done}  /  ${stats.total}`}</h2>
