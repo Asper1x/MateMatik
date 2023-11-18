@@ -2,6 +2,7 @@ import ILocale from '@/app/types/props/lang/ILocale';
 import styles from './Results.module.scss';
 import clsx from 'clsx';
 import { getTranslation } from '@/app/[lang]/localize';
+import Entities from './Entities';
 
 export default async function Results({ params }: { params: ILocale }) {
 	const [COMPLETEDBY, TIMEELAPSED, TASKNAME, MARK] = await getTranslation(
@@ -21,21 +22,7 @@ export default async function Results({ params }: { params: ILocale }) {
 					<th>{TIMEELAPSED}</th>
 					<th>{MARK}</th>
 				</tr>
-				<tr>
-					<td>1</td>
-					<td>1</td>
-					<td>1</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>1</td>
-					<td>1</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>1</td>
-					<td>1</td>
-				</tr>
+				<Entities />
 			</tbody>
 		</table>
 	);

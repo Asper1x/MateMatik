@@ -11,4 +11,5 @@ export interface ITesting extends IStartTesting {
 	updated: Date;
 	started?: Date;
 	problem?: IProblem;
+	mark?: number;
 }

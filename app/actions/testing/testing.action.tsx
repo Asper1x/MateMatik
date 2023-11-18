@@ -62,3 +62,10 @@ export async function ARegister(id: string) {
 		},
 	});
 }
+
+export async function AGetTesting(ids: string[]) {
+	return prisma.testing.findMany({
+		where: { id: { in: ids } },
+		include: { problem: true },
+	});
+}

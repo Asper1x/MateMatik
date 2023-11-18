@@ -34,4 +34,5 @@ model Testing {
   updated   DateTime @updatedAt
   problemId String
   problem   Problem @relation(fields: [problemId], references: [publicId])
+  mark      Int?
 }

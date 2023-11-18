@@ -9,6 +9,7 @@ import { ARegister, ASendAnswer } from '@/app/actions/testing/testing.action';
 import { MathJax, MathJax3Config, MathJaxContext } from 'better-react-mathjax';
 import TestingNavbar from '../../nav/TestingNavBar';
 import { useRouter } from 'next/navigation';
+import { saveTesting } from '@/app/hooks/storage/useStorage';
 
 const config: MathJax3Config = {
 	loader: { load: ['input/asciimath'] },
@@ -51,6 +52,7 @@ export default function TestingPage({
 
 	useEffect(() => {
 		if (!testing.started) {
+			saveTesting(testing.id);
 			ARegister(testing.id);
 		}
 	});

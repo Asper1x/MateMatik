@@ -7,18 +7,8 @@ import ProblemThumb from '../../ui/previews/ProblemThumb/ProblemThumb';
 import ProblemsService from '@/lib/services/problem/problem.service';
 import { getDictionary, getTranslation } from '@/app/[lang]/localize';
 import MathFormatter from '../../ui/math-formatter/MathFormatter';
-
-function map(
-	x: number,
-	in_min: number,
-	in_max: number,
-	out_min: number,
-	out_max: number,
-) {
-	return Math.ceil(
-		((x - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min,
-	);
-}
+import { TestingService } from '@/lib/services/testing/testing.service';
+import { CalcUtils } from '@/lib/utils/test/CalcUtils';
 
 export default async function Finished({
 	testing,
@@ -29,7 +19,8 @@ export default async function Finished({
 	test: string[];
 	lang: string;
 }) {
-	const [[problem], [HOSTNAME]] = await Promise.all([
+	const [testingMark, [problem], [HOSTNAME]] = await Promise.all([
+		TestingService.endTesting(testing.id),
 		ProblemsService.get({
 			take: 1,
 			page: 1,
@@ -38,15 +29,10 @@ export default async function Finished({
 		getTranslation(lang, 'host.name', 'errors.testInProgress'),
 	]);
 
-	const correctAnswers = testing.answers.filter((answer) => {
-		const aNum: string = answer.substring(
-			answer.indexOf('=') + 1,
-			answer.lastIndexOf('&&'),
-		);
-		return aNum == answer.split('&&')[1];
-	}).length;
-
-	const timeElapsed = DateUtils.diff(testing.updated, testing.started);
+	const timeElapsed = DateUtils.diff(
+		testing.updated,
+		testing.started ?? new Date(),
+	);
 
 	let Translated = await getDictionary(lang);
 	Translated = Translated.pages.finished;
@@ -64,7 +50,7 @@ export default async function Finished({
 	return (
 		<>
 			<TestingNavbar
-				startedDate={testing.started}
+				startedDate={testing.started ?? new Date()}
 				hostName={HOSTNAME}
 				stats={{
 					total: test.length,
@@ -85,14 +71,10 @@ export default async function Finished({
 						{timeElapsed.seconds.toString().padStart(2, '0')}
 					</p>
 					<p>{`${Translated.numberOfTasks}: ${test.length}`}</p>
-					<p>{`${Translated.correctAnswers}: ${correctAnswers}`}</p>
-					<p>{`${Translated.mark}: ${map(
-						correctAnswers,
-						0,
-						test.length,
-						1,
-						12,
+					<p>{`${Translated.correctAnswers}: ${CalcUtils.getCorrect(
+						testing.answers,
 					)}`}</p>
+					<p>{`${Translated.mark}: ${testingMark!.mark}`}</p>
 					<div className={styles.answers}>
 						{answers.map((answer, index) => (
 							<div key={`A${index}`} className={styles.answer}>
