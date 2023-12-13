@@ -19,6 +19,8 @@ export default async function ProblemTag({
 	let TRANSLATED;
 	if (lang == 'en') {
 		TRANSLATED = tag;
+	} else if (tag.length <= 1) {
+		return <></>;
 	} else {
 		[TRANSLATED] = await getTranslation(lang, `tags.${tag}`);
 	}

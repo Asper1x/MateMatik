@@ -5,6 +5,8 @@ import styles from './Problems.module.scss';
 import { TagService } from '@/lib/services/tag/tag.service';
 import ProblemTag from '../../ui/tag/ProblemTag';
 import Link from 'next/link';
+import { NumberType } from '@/lib/utils/test/TestUtils';
+import ProblemsType from './ProblemsType/ProblemsType';
 
 function getQuery(tag: string, searchTags: string[]) {
 	const tagIndex = searchTags.indexOf(tag);
@@ -68,13 +70,16 @@ export default async function Problems({
 				))}
 			</div>
 			<div className={styles.rows}>
-				{problems.map((problem) => (
-					<ProblemPreview
-						lang={params.lang}
-						key={problem.publicId}
-						problem={problem}
-					/>
-				))}
+				{Object.values(NumberType)
+					.slice(0, 3)
+					.map((type) => (
+						<ProblemsType
+							key={`type_${type}`}
+							lang={params.lang}
+							type={type}
+							problems={problems}
+						/>
+					))}
 			</div>
 		</div>
 	);

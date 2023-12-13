@@ -55,6 +55,7 @@ export default async function Finished({
 				stats={{
 					total: test.length,
 					done: testing.answers.length,
+					mark: 0,
 				}}
 				className={styles.finished_nav}
 				timeStamp={timeElapsed}

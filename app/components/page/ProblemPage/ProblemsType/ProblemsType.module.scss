@@ -1,0 +1,16 @@
+.problems_list {
+	display: flex;
+	flex-direction: column;
+
+	gap: 1rem;
+	width: 100%;
+}
+
+.problems_heading {
+	padding: 5px 0 5px 0;
+
+	border-radius: var(--border-radius) var(--border-radius) 0 0;
+	box-shadow: var(--border-shadow);
+	text-align: center;
+	background-color: rgb(var(--background-secondary-rgb));
+}

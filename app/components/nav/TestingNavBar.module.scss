@@ -17,12 +17,16 @@
 			max-height: 0;
 		}
 
-		h2 {
+		div {
+			display: flex;
+
 			position: absolute;
 			right: 0;
 			top: 50%;
 			transform: translate(0, -50%);
+		}
 
+		h2 {
 			background-color: rgb(var(--background-primary-rgb));
 			padding: 10px;
 			border-radius: var(--border-radius);
@@ -31,6 +35,11 @@
 			font-size: x-large;
 		}
 	}
+}
+
+.lamps {
+	padding: 1px;
+	fill: var(--background-primary-rgb);
 }
 
 .trans_activate {

@@ -23,6 +23,18 @@ export const TagProperties: ITagTypeArr = {
 		type: 'appearance',
 		value: { backgroundColor: '#00ff00a8' },
 	},
+	n: {
+		type: 'appearance',
+		value: {},
+	},
+	q: {
+		type: 'appearance',
+		value: {},
+	},
+	z: {
+		type: 'appearance',
+		value: {},
+	},
 
 	divide: {
 		type: 'icon',

@@ -1,6 +1,6 @@
 import { ITest } from '@/lib/services/problem/problem.interface';
 
-enum NumberType {
+export enum NumberType {
 	Natural = 'n',
 	Intenger = 'z',
 	Rational = 'q',

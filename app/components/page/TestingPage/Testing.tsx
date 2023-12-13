@@ -40,7 +40,8 @@ export default function TestingPage({
 		const answer = formData.get('answer')?.toString();
 
 		if (answer !== undefined && !Number.isNaN(parseFloat(answer))) {
-			testing.answers.push(`${currentTest}=${answer}`);
+			const data = `${currentTest}=${answer}`;
+			testing.answers.push(data);
 			if (testing.answers.length < test.length) {
 				setCurrTest(test[testing.answers.length]);
 			}
@@ -65,6 +66,7 @@ export default function TestingPage({
 				stats={{
 					total: test.length,
 					done: testing.answers.length + 1,
+					mark: 0,
 				}}
 				maxTime={testing.problem?.maxTime}
 			/>
@@ -90,14 +92,3 @@ export default function TestingPage({
 		</>
 	);
 }
-
-/*
-<span
-							role="textbox"
-							id="answer"
-							placeholder={eval(test[0])}
-							contentEditable
-							spellCheck="false"
-							ref={inputRef}
-						></span>
-*/
