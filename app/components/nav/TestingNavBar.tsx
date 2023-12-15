@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react';
 import useTimer from '@/app/hooks/timer/useTimer';
 import { DateUtils, TimeStamp } from '@/lib/utils/test/DateUtils';
 import { useRouter } from 'next/navigation';
-import Icon from '../ui/icon/Icon';
 
 const caveat = Caveat({ subsets: ['latin'], weight: '700', display: 'swap' });
 
@@ -22,7 +21,7 @@ export default function TestingNavbar({
 }: {
 	hostName: string;
 	startedDate: Date;
-	stats: { done: number; total: number; mark: number; valid?: boolean };
+	stats: { done: number; total: number; mark: number; qCost?: number };
 	className?: string;
 	timeStamp?: TimeStamp;
 	maxTime?: number;
@@ -71,7 +70,21 @@ export default function TestingNavbar({
 						)}
 					</p>
 					<div>
-						<h2>{stats.mark}</h2>
+						{stats.qCost && (
+							<h2
+								className={styles.h2_stats_abs}
+								style={{
+									color: stats.qCost >= 0 ? 'green' : 'red',
+								}}
+							>
+								{stats.qCost >= 0 ?? '+' + stats.qCost}
+							</h2>
+						)}
+
+						<h2 className={styles.h2_stats}>{stats.mark}</h2>
+						<h2
+							className={styles.h2_stats}
+						>{`${stats.done} / ${stats.total}`}</h2>
 					</div>
 				</li>
 			</ul>

@@ -10,6 +10,9 @@ import { MathJax, MathJax3Config, MathJaxContext } from 'better-react-mathjax';
 import TestingNavbar from '../../nav/TestingNavBar';
 import { useRouter } from 'next/navigation';
 import { saveTesting } from '@/app/hooks/storage/useStorage';
+import Mexp from 'math-expression-evaluator';
+
+const mexp = new Mexp();
 
 const config: MathJax3Config = {
 	loader: { load: ['input/asciimath'] },
@@ -26,6 +29,10 @@ export default function TestingPage({
 }) {
 	const formRef = useRef<HTMLFormElement>(null);
 	const [currentTest, setCurrTest] = useState(test[testing.answers.length]);
+	const [progress, setProgress] = useState({
+		mark: testing.mark ?? 0,
+		qCost: 0,
+	});
 	const { refresh } = useRouter();
 	const action = async (data: FormData) => {
 		await ASendAnswer(testing.id, test[testing.answers.length - 1], data);
@@ -38,10 +45,14 @@ export default function TestingPage({
 	const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		const formData = new FormData(event.currentTarget);
 		const answer = formData.get('answer')?.toString();
-
 		if (answer !== undefined && !Number.isNaN(parseFloat(answer))) {
-			const data = `${currentTest}=${answer}`;
-			testing.answers.push(data);
+			let coeff: number;
+
+			//@ts-ignore
+			coeff = mexp.eval(`${currentTest}`) == answer ? 1 : -1;
+
+			setProgress((prev) => ({ qCost: coeff, mark: prev.mark + coeff }));
+			testing.answers.push(`${currentTest}=${answer}`);
 			if (testing.answers.length < test.length) {
 				setCurrTest(test[testing.answers.length]);
 			}
@@ -66,7 +77,7 @@ export default function TestingPage({
 				stats={{
 					total: test.length,
 					done: testing.answers.length + 1,
-					mark: 0,
+					...progress,
 				}}
 				maxTime={testing.problem?.maxTime}
 			/>

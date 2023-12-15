@@ -24,11 +24,6 @@ export default async function ProblemPreview({
 			<div className={styles.description}>
 				<h1>{problem.title}</h1>
 				<p>{problem.description}</p>
-				<div className={styles.tags_container}>
-					{problem.tagNames.map((tag) => (
-						<ProblemTag lang={lang} tag={tag} key={tag} />
-					))}
-				</div>
 			</div>
 		</>
 	);
@@ -45,3 +40,11 @@ export default async function ProblemPreview({
 		</div>
 	);
 }
+
+/*
+				<div className={styles.tags_container}>
+					{problem.tagNames.map((tag) => (
+						<ProblemTag lang={lang} tag={tag} key={tag} />
+					))}
+				</div>
+				*/

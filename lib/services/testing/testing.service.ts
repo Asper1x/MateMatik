@@ -1,10 +1,11 @@
 import { IStartTesting, ITesting } from './testing.interface';
 import prisma from '@/lib/prisma';
 import { CalcUtils } from '@/lib/utils/test/CalcUtils';
-import { TestUtils } from '@/lib/utils/test/TestUtils';
-import { evaluate } from 'mathjs';
 import { nanoid } from 'nanoid';
 import ProblemsService from '../problem/problem.service';
+import Mexp from 'math-expression-evaluator';
+
+const mexp = new Mexp();
 
 export const TestingService = {
 	async startTesting(data: IStartTesting) {
@@ -31,7 +32,10 @@ export const TestingService = {
 		return prisma.testing.update({
 			where: { id },
 			data: {
-				answers: { push: `${problem}=${answer}&&${evaluate(problem)}` },
+				answers: {
+					//@ts-ignore
+					push: `${problem}=${answer}&&${mexp.eval(problem)}`,
+				},
 			},
 		});
 	},

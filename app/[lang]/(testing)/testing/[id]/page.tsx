@@ -39,8 +39,8 @@ export default async function TestingPage({
 			{testing.answers.length >= test.length ||
 			(testing.started &&
 				testing.problem?.maxTime &&
-				testing.started.getTime() <=
-					Date.now() + testing.problem?.maxTime * 1000) ? (
+				testing.started.getTime() + testing.problem?.maxTime * 1000 <=
+					Date.now()) ? (
 				<Finished testing={testing} test={test} lang={params.lang} />
 			) : (
 				<Testing testing={testing} test={test} HOSTNAME={HOSTNAME} />

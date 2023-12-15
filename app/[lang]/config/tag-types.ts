@@ -35,7 +35,9 @@ export const TagProperties: ITagTypeArr = {
 		type: 'appearance',
 		value: {},
 	},
+};
 
+/*
 	divide: {
 		type: 'icon',
 		value: 'divide',
@@ -52,4 +54,4 @@ export const TagProperties: ITagTypeArr = {
 		type: 'icon',
 		value: 'minus',
 	},
-};
+*/

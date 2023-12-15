@@ -21,8 +21,12 @@ export default function ProblemThumb({
 	let appearance: CSSProperties = {};
 
 	for (const tag of problem.tagNames) {
-		if (TagProperties[tag].type == 'icon') {
+		if (
+			TagProperties[tag] !== undefined &&
+			TagProperties[tag].type == 'icon'
+		) {
 			icons.push(TagProperties[tag].value as IconName);
+		} else if (TagProperties[tag] == undefined) {
 		} else {
 			appearance = {
 				...appearance,

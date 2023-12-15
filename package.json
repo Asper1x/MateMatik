@@ -16,7 +16,7 @@
 		"d": "^1.0.1",
 		"global": "^4.4.0",
 		"lucide-react": "^0.290.0",
-		"mathjs": "^12.0.0",
+		"math-expression-evaluator": "^2.0.4",
 		"nanoid": "^5.0.2",
 		"next": "^14.0.0",
 		"prisma": "^5.5.2",

@@ -19,6 +19,9 @@
 
 		div {
 			display: flex;
+			align-items: center;
+
+			gap: 1rem;
 
 			position: absolute;
 			right: 0;
@@ -26,13 +29,18 @@
 			transform: translate(0, -50%);
 		}
 
-		h2 {
+		.h2_stats {
 			background-color: rgb(var(--background-primary-rgb));
 			padding: 10px;
 			border-radius: var(--border-radius);
 
 			text-align: center;
 			font-size: x-large;
+			&_abs {
+				position: relative;
+				z-index: -1;
+				animation: slideToRight 500ms ease-in-out;
+			}
 		}
 	}
 }
@@ -68,6 +76,20 @@
 	100% {
 		opacity: 1;
 		max-height: 50px;
+	}
+}
+
+@keyframes slideToRight {
+	0% {
+		right: 100%;
+	}
+
+	99% {
+		opacity: 1;
+	}
+	100% {
+		right: 0;
+		opacity: 0;
 	}
 }
 

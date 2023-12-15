@@ -47,28 +47,6 @@ export default async function Problems({
 
 	return (
 		<div className="container">
-			<div className={styles.tags_container}>
-				{tags.map((tag) => (
-					<Link
-						key={tag.name}
-						href={{
-							query: {
-								tags: getQuery(tag.name, searchTags),
-							},
-						}}
-					>
-						<ProblemTag
-							className={
-								searchTags.indexOf(tag.name) >= 0
-									? styles.clickable_tag_selected
-									: styles.clickable_tag
-							}
-							lang={params.lang}
-							tag={tag.name}
-						/>
-					</Link>
-				))}
-			</div>
 			<div className={styles.rows}>
 				{Object.values(NumberType)
 					.slice(0, 3)
