@@ -40,13 +40,13 @@
 			"timeElapsed": "Выполнено за",
 			"numberOfTasks": "Количество задач",
 			"correctAnswers": "Правильных ответов",
-			"mark": "Оценка"
+			"mark": "Баллы"
 		},
 		"results": {
 			"completedBy": "Выполнено",
 			"timeElapsed": "Выполнено за",
 			"taskName": "Название задания",
-			"mark": "Оценка"
+			"mark": "Баллы"
 		}
 	},
 

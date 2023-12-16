@@ -21,8 +21,10 @@ export const CalcUtils = {
 		}).length;
 	},
 
-	getMark(questionsCount: number, answers: string[]) {
-		const correctAnswers = this.getCorrect(answers);
-		return this.map(correctAnswers, 0, questionsCount, 1, 12);
+	getMark(answers: string[]) {
+		return (
+			this.getCorrect(answers) +
+			(answers.length - this.getCorrect(answers)) * -1
+		);
 	},
 };

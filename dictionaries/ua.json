@@ -40,13 +40,13 @@
 			"timeElapsed": "Закінчено за",
 			"numberOfTasks": "Кількість завдань",
 			"correctAnswers": "Кількість правильних відповідей",
-			"mark": "Оцінка"
+			"mark": "Бали"
 		},
 		"results": {
 			"completedBy": "Закінчено",
 			"timeElapsed": "Закінчено за",
 			"taskName": "Назва завдання",
-			"mark": "Оцінка"
+			"mark": "Бали"
 		}
 	},
 

@@ -47,9 +47,8 @@ export const TestingService = {
 		} else if (testing.mark) {
 			return testing;
 		}
-		const test = await ProblemsService.load(testing.problemId);
 
-		const mark = CalcUtils.getMark(test!.length, testing.answers);
+		const mark = CalcUtils.getMark(testing.answers);
 		return prisma.testing.update({ where: { id }, data: { mark } });
 	},
 };

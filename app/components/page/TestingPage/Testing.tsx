@@ -11,6 +11,7 @@ import TestingNavbar from '../../nav/TestingNavBar';
 import { useRouter } from 'next/navigation';
 import { saveTesting } from '@/app/hooks/storage/useStorage';
 import Mexp from 'math-expression-evaluator';
+import { CalcUtils } from '@/lib/utils/test/CalcUtils';
 
 const mexp = new Mexp();
 
@@ -30,7 +31,7 @@ export default function TestingPage({
 	const formRef = useRef<HTMLFormElement>(null);
 	const [currentTest, setCurrTest] = useState(test[testing.answers.length]);
 	const [progress, setProgress] = useState({
-		mark: testing.mark ?? 0,
+		mark: CalcUtils.getMark(testing.answers) ?? 0,
 		qCost: 0,
 	});
 	const { refresh } = useRouter();

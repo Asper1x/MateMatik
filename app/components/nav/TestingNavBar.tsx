@@ -70,14 +70,17 @@ export default function TestingNavbar({
 						)}
 					</p>
 					<div>
-						{stats.qCost && (
+						{stats.qCost && stats.qCost != 0 && (
 							<h2
 								className={styles.h2_stats_abs}
+								key={stats.done}
 								style={{
 									color: stats.qCost >= 0 ? 'green' : 'red',
 								}}
 							>
-								{stats.qCost >= 0 ?? '+' + stats.qCost}
+								{stats.qCost >= 0
+									? '+' + stats.qCost
+									: stats.qCost}
 							</h2>
 						)}
 
