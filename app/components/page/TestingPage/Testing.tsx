@@ -49,8 +49,9 @@ export default function TestingPage({
 		if (answer !== undefined && !Number.isNaN(parseFloat(answer))) {
 			let coeff: number;
 
-			//@ts-ignore
-			coeff = mexp.eval(`${currentTest}`) == answer ? 1 : -1;
+			coeff =
+				//@ts-ignore
+				Number(mexp.eval(currentTest)).toFixed(1) == answer ? 1 : -1;
 
 			setProgress((prev) => ({ qCost: coeff, mark: prev.mark + coeff }));
 			testing.answers.push(`${currentTest}=${answer}`);
@@ -94,6 +95,7 @@ export default function TestingPage({
 							type="number"
 							name="answer"
 							placeholder="x"
+							step={0.01}
 							className={styles.input_area}
 						/>
 						<input type="submit" hidden />

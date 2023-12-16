@@ -1,0 +1,46 @@
+{
+	"tests": [
+		{
+			"floor": 0,
+			"ceil": 10,
+			"vars": ["q1", "q2"],
+			"equation": "q1 - q2"
+		},
+		{
+			"floor": 0,
+			"ceil": 10,
+			"vars": ["q1", "q2"],
+			"equation": "q1 - q2"
+		},
+		{
+			"floor": 0,
+			"ceil": 10,
+			"vars": ["q1", "q2", "q3"],
+			"equation": "q1 - q2 - q3"
+		},
+		{
+			"floor": 0,
+			"ceil": 10,
+			"vars": ["q1", "q2", "q3"],
+			"equation": "q1 - q2 - q3"
+		},
+		{
+			"floor": -10,
+			"ceil": 10,
+			"vars": ["q1", "q2", "q3"],
+			"equation": "q1 - q2 - q3"
+		},
+		{
+			"floor": -10,
+			"ceil": 10,
+			"vars": ["q1", "q2", "q3"],
+			"equation": "q1 - q2 - q3"
+		},
+		{
+			"floor": -10,
+			"ceil": 10,
+			"vars": ["q1", "q2", "q3", "q4"],
+			"equation": "q1 - q2 - q3 - q4"
+		}
+	]
+}

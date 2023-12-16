@@ -29,6 +29,8 @@ export default async function TestingPage({
 			TestUtils.autoGen.bind(TestUtils),
 		);
 	} catch (e: any) {
+		console.log(e);
+
 		testing = undefined;
 		HOSTNAME = null;
 		test = undefined;

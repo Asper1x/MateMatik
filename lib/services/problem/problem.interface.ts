@@ -20,8 +20,8 @@ export interface IProblem extends ICreateProblem {
 }
 
 export interface ITest {
-	floor?: number;
-	ceil?: number;
+	floor: number;
+	ceil: number;
 	vars: string[];
 	equation: string;
 }

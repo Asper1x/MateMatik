@@ -7,17 +7,24 @@ export enum NumberType {
 }
 
 interface TestMeta {
-	floor?: number;
-	ceil?: number;
+	floor: number;
+	ceil: number;
 }
 
 type VarsValue = Record<string, number>;
 
 export const TestUtils = {
-	getRandomArbitrary({ floor: min, ceil: max }: TestMeta) {
+	getRandomArbitrary({ floor: min, ceil: max }: TestMeta, isFloat?: boolean) {
 		min = Math.ceil(min ?? -1000);
 		max = Math.floor(max ?? 1000);
-		return Math.floor(Math.random() * (max - min) + min);
+		const float = Math.random() * (max - min) + min;
+
+		switch (isFloat == true) {
+			case true:
+				return Number(float.toFixed(1));
+			case false:
+				return Math.floor(float);
+		}
 	},
 
 	generateNumber(name: string, meta: TestMeta) {
@@ -33,7 +40,7 @@ export const TestUtils = {
 				break;
 
 			case NumberType.Rational:
-				generated = this.getRandomArbitrary(meta);
+				generated = this.getRandomArbitrary(meta, true);
 				break;
 		}
 

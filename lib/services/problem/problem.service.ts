@@ -15,6 +15,9 @@ const ProblemsService = {
 				where: { ...data.prompt, ...tags },
 				take: data.take,
 				skip: data.take * (data.page - 1),
+				orderBy: {
+					tagNames: 'desc',
+				},
 			})
 			.then((value) =>
 				value.map((problem) => ({

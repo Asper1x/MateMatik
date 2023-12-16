@@ -20,10 +20,10 @@ export default async function ProblemPreview({
 
 	const content = (
 		<>
-			<ProblemThumb problem={problem} />
+			<ProblemThumb className={styles.prob_prev} problem={problem} />
 			<div className={styles.description}>
 				<h1>{problem.title}</h1>
-				<p>{problem.description}</p>
+				<p>{problem.publicId}</p>
 			</div>
 		</>
 	);
