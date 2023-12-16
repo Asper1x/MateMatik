@@ -1,6 +1,5 @@
 import { IProblem } from '@/lib/services/problem/problem.interface';
 import styles from './ProblemPreview.module.scss';
-import ProblemTag from '../../tag/ProblemTag';
 import ModalButton from './modal-button/ModalButton';
 import { getTranslation } from '@/app/[lang]/localize';
 import ProblemThumb from '../ProblemThumb/ProblemThumb';
@@ -23,7 +22,7 @@ export default async function ProblemPreview({
 			<ProblemThumb className={styles.prob_prev} problem={problem} />
 			<div className={styles.description}>
 				<h1>{problem.title}</h1>
-				<p>{problem.publicId}</p>
+				<p>{problem.description}</p>
 			</div>
 		</>
 	);
@@ -40,11 +39,3 @@ export default async function ProblemPreview({
 		</div>
 	);
 }
-
-/*
-				<div className={styles.tags_container}>
-					{problem.tagNames.map((tag) => (
-						<ProblemTag lang={lang} tag={tag} key={tag} />
-					))}
-				</div>
-				*/
