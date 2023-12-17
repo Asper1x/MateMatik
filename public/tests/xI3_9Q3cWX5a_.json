@@ -1,44 +1,51 @@
 {
 	"tests": [
 		{
-			"floor": 0,
-			"ceil": 10,
+			"floor": 10,
+			"ceil": 100,
+			"increasing": true,
 			"vars": ["n1", "n2"],
 			"equation": "n1 - n2"
 		},
 		{
-			"floor": 0,
-			"ceil": 10,
+			"floor": 10,
+			"ceil": 100,
+			"increasing": true,
 			"vars": ["n1", "n2"],
 			"equation": "n1 - n2"
 		},
 		{
-			"floor": 0,
-			"ceil": 10,
+			"floor": 10,
+			"ceil": 100,
+			"increasing": true,
 			"vars": ["n1", "n2"],
 			"equation": "n1 - n2"
 		},
 		{
-			"floor": 0,
-			"ceil": 10,
+			"floor": 10,
+			"ceil": 500,
+			"increasing": true,
 			"vars": ["n1", "n2", "n3"],
 			"equation": "n1 - n2 - n3"
 		},
 		{
-			"floor": 0,
-			"ceil": 10,
+			"floor": 10,
+			"ceil": 500,
+			"increasing": true,
 			"vars": ["n1", "n2", "n3"],
 			"equation": "n1 - n2 - n3"
 		},
 		{
-			"floor": 0,
-			"ceil": 10,
+			"floor": 10,
+			"ceil": 500,
+			"increasing": true,
 			"vars": ["n1", "n2", "n3", "n4"],
 			"equation": "n1 - n2 - n3 - n4"
 		},
 		{
-			"floor": 0,
-			"ceil": 10,
+			"floor": 10,
+			"ceil": 1000,
+			"increasing": true,
 			"vars": ["n1", "n2", "n3", "n4"],
 			"equation": "n1 - n2 - n3 - n4"
 		}

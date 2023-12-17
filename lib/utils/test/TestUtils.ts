@@ -9,6 +9,7 @@ export enum NumberType {
 interface TestMeta {
 	floor: number;
 	ceil: number;
+	increasing?: boolean;
 }
 
 type VarsValue = Record<string, number>;
@@ -32,7 +33,10 @@ export const TestUtils = {
 		const type: NumberType = name[0] as NumberType;
 		switch (type) {
 			case NumberType.Natural:
-				generated = this.getRandomArbitrary({ ...meta, floor: 0 });
+				generated = this.getRandomArbitrary({
+					...meta,
+					floor: meta.floor <= 0 ? 0 : meta.floor,
+				});
 				break;
 
 			case NumberType.Intenger:
@@ -54,6 +58,15 @@ export const TestUtils = {
 				continue;
 			}
 			generated[x] = this.generateNumber(x, meta);
+			if (meta.increasing == true) {
+				meta = {
+					...meta,
+					ceil:
+						x.indexOf('1') >= 0
+							? Math.floor(generated[x] / (vars.length - 1))
+							: generated[x],
+				};
+			}
 		}
 
 		return generated;
@@ -69,7 +82,11 @@ export const TestUtils = {
 
 	autoGen(test: ITest) {
 		const vars = test.vars;
-		const meta = { floor: test.floor, ceil: test.ceil };
+		const meta = {
+			floor: test.floor,
+			ceil: test.ceil,
+			increasing: test.increasing,
+		};
 		const equation = test.equation;
 
 		const genVars = this.generateVars(vars, meta);

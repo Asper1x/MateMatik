@@ -22,6 +22,7 @@ export interface IProblem extends ICreateProblem {
 export interface ITest {
 	floor: number;
 	ceil: number;
+	increasing?: boolean;
 	vars: string[];
 	equation: string;
 }
