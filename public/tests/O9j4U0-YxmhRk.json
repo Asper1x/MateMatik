@@ -3,44 +3,44 @@
 		{
 			"floor": -10,
 			"ceil": 10,
-			"vars": ["n1", "n2", "z1", "z2"],
-			"equation": "n1 + n2 - z1 + z2"
+			"vars": ["z1", "z2"],
+			"equation": "z1 + z2"
 		},
 		{
 			"floor": -10,
 			"ceil": 10,
-			"vars": ["n1", "n2", "z1", "z2"],
-			"equation": "n1 + n2 - z1 + z2"
+			"vars": ["z1", "z2"],
+			"equation": "z1 + z2"
 		},
 		{
 			"floor": -10,
 			"ceil": 10,
-			"vars": ["n1", "n2", "z1", "z2"],
-			"equation": "n1 + n2 - z1 + z2"
+			"vars": ["z1", "z2", "z3"],
+			"equation": "z1 + z2 + z3"
 		},
 		{
 			"floor": -10,
 			"ceil": 10,
-			"vars": ["n1", "n2", "z1", "z2"],
-			"equation": "n1 + n2 - z1 + z2"
+			"vars": ["z1", "z2", "z3"],
+			"equation": "z1 + z2 + z3"
 		},
 		{
 			"floor": -10,
 			"ceil": 10,
-			"vars": ["n1", "n2", "z1", "z2"],
-			"equation": "n1 + n2 - z1 + z2"
+			"vars": ["z1", "z2", "z3"],
+			"equation": "z1 + z2 + z3"
 		},
 		{
 			"floor": -10,
 			"ceil": 10,
-			"vars": ["n1", "n2", "z1", "z2"],
-			"equation": "n1 + n2 - z1 + z2"
+			"vars": ["z1", "z2", "z3", "z4"],
+			"equation": "z1 + z2 + z3 + z4"
 		},
 		{
 			"floor": -10,
 			"ceil": 10,
-			"vars": ["n1", "n2", "z1", "z2"],
-			"equation": "n1 + n2 - z1 + z2"
+			"vars": ["z1", "z2", "z3", "z4"],
+			"equation": "z1 + z2 + z3 + z4"
 		}
 	]
 }
