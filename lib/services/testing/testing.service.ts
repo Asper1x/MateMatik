@@ -33,10 +33,10 @@ export const TestingService = {
 			where: { id },
 			data: {
 				answers: {
-					push: `${problem}=${answer}&&${Number(
+					push: `${problem}=${answer}&&${CalcUtils.round(
 						//@ts-ignore
 						mexp.eval(problem),
-					).toFixed(1)}`,
+					)}`,
 				},
 			},
 		});

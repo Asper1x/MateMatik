@@ -27,4 +27,12 @@ export const CalcUtils = {
 			(answers.length - this.getCorrect(answers)) * -1
 		);
 	},
+
+	round(n: number) {
+		if (n % 1 !== 0) {
+			return +n.toFixed(1);
+		} else {
+			return Number(n);
+		}
+	},
 };

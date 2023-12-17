@@ -51,7 +51,7 @@ export default function TestingPage({
 
 			coeff =
 				//@ts-ignore
-				Number(mexp.eval(currentTest)).toFixed(1) == answer ? 1 : -1;
+				CalcUtils.round(mexp.eval(currentTest)) == answer ? 1 : -1;
 
 			setProgress((prev) => ({ qCost: coeff, mark: prev.mark + coeff }));
 			testing.answers.push(`${currentTest}=${answer}`);
