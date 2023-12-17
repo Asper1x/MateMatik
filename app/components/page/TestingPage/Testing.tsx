@@ -92,10 +92,12 @@ export default function TestingPage({
 				<div className={clsx('MathJax_CHTML', styles.input_answer)}>
 					<form ref={formRef} onSubmit={onSubmit} action={action}>
 						<input
-							type="number"
+							type="text"
 							name="answer"
 							placeholder="x"
 							step={0.01}
+							min={-10000}
+							max={10000}
 							className={styles.input_area}
 						/>
 						<input type="submit" hidden />

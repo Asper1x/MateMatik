@@ -9,7 +9,7 @@ export default function UserKeyboard({
 	formRef: RefObject<HTMLFormElement>;
 }) {
 	const entries = Array.from(Array(9).keys()).map(String);
-	entries.push('CE', '9', 'Enter');
+	entries.push('CE', '9', 'Enter', '-');
 
 	const onClick = (
 		event: React.MouseEvent<HTMLButtonElement>,
