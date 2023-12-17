@@ -1,0 +1,18 @@
+.butn {
+	cursor: pointer;
+	padding: 12px 24px 12px 24px;
+
+	border-radius: 0.25em;
+
+	&_primary {
+		@extend .butn;
+		border: 2px solid rgb(var(--primary-border-rgb));
+		background-color: rgb(var(--background-secondary-rgb));
+	}
+
+	&_secondary {
+		@extend .butn;
+		border: transparent;
+		background-color: rgb(var(--primary-border-rgb));
+	}
+}

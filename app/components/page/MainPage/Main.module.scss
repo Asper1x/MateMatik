@@ -1,0 +1,41 @@
+.container {
+	margin-top: 2.5rem;
+
+	padding-left: 3%;
+	padding-right: 3%;
+
+	h2,
+	p {
+		margin-bottom: 1.5rem;
+	}
+
+	button {
+		font-weight: 700;
+
+		font-size: 0.875rem;
+		line-height: 1.25rem;
+	}
+
+	.infos {
+		display: grid;
+
+		gap: 1.5rem;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+
+		h3 {
+			font-weight: 600;
+			font-size: 1.5rem;
+			line-height: 2rem;
+			margin-bottom: 1rem;
+		}
+
+		ul {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5em;
+			list-style-type: disc;
+			list-style-position: inside;
+			margin-bottom: 1.5rem;
+		}
+	}
+}
