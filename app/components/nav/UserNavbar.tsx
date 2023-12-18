@@ -35,7 +35,9 @@ export default async function UserNavbar({
 
 				{NavbarPages.map((value, index) => (
 					<li key={value.path}>
-						<Link href={value.path}> {pageLabels[index]}</Link>
+						<Link prefetch={value.prefetch} href={value.path}>
+							{pageLabels[index]}
+						</Link>
 					</li>
 				))}
 			</ul>

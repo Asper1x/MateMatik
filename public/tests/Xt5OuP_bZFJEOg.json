@@ -1,46 +1,58 @@
 {
 	"tests": [
 		{
-			"floor": 0,
+			"floor": -10,
 			"ceil": 10,
-			"vars": ["n1", "n2"],
-			"equation": "n1 - n2"
-		},
-		{
-			"floor": 0,
-			"ceil": 10,
-			"vars": ["n1", "n2"],
-			"equation": "n1 - n2"
-		},
-		{
-			"floor": 0,
-			"ceil": 10,
-			"vars": ["n1", "n2"],
-			"equation": "n1 - n2"
-		},
-		{
-			"floor": 0,
-			"ceil": 10,
-			"vars": ["n1", "n2"],
-			"equation": "n1 - n2"
+			"vars": ["z1", "z2"],
+			"equation": "z1 - z2"
 		},
 		{
 			"floor": -10,
 			"ceil": 10,
-			"vars": ["n1", "n2"],
-			"equation": "n1 - n2"
+			"vars": ["z1", "z2"],
+			"equation": "z1 - z2"
 		},
 		{
 			"floor": -10,
 			"ceil": 10,
-			"vars": ["n1", "n2", "n3"],
-			"equation": "n1 - n2 - n3"
+			"vars": ["z1", "z2"],
+			"equation": "z1 - z2"
 		},
 		{
-			"floor": -10,
-			"ceil": 10,
-			"vars": ["n1", "n2", "n3"],
-			"equation": "n1 - n2 - n3"
+			"floor": -100,
+			"ceil": 100,
+			"vars": ["z1", "z2"],
+			"equation": "z1 - z2"
+		},
+		{
+			"floor": -100,
+			"ceil": 100,
+			"vars": ["z1", "z2"],
+			"equation": "z1 - z2"
+		},
+		{
+			"floor": -100,
+			"ceil": 100,
+			"vars": ["z1", "z2"],
+			"equation": "z1 - z2"
+		},
+		{
+			"floor": -1000,
+			"ceil": 1000,
+			"vars": ["z1", "z2"],
+			"equation": "z1 - z2"
+		},
+		{
+			"floor": -1000,
+			"ceil": 1000,
+			"vars": ["z1", "z2"],
+			"equation": "z1 - z2"
+		},
+		{
+			"floor": -1000,
+			"ceil": 1000,
+			"vars": ["z1", "z2"],
+			"equation": "z1 - z2"
 		}
 	]
 }

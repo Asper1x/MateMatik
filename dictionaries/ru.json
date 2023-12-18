@@ -6,7 +6,8 @@
 	"nav": {
 		"greeting": "Привет",
 		"problems": "Задачи",
-		"myResults": "Мои результаты"
+		"myResults": "Мои результаты",
+		"top10Results": "Топ 10 результатов"
 	},
 
 	"tags": {

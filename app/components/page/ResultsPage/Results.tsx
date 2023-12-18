@@ -4,7 +4,17 @@ import clsx from 'clsx';
 import { getTranslation } from '@/app/[lang]/localize';
 import Entities from './Entities';
 
-export default async function Results({ params }: { params: ILocale }) {
+export interface IResultsSearchParams {
+	top10?: boolean;
+}
+
+export default async function Results({
+	params,
+	searchParams,
+}: {
+	params: ILocale;
+	searchParams: IResultsSearchParams;
+}) {
 	const [COMPLETEDBY, TIMEELAPSED, TASKNAME, MARK] = await getTranslation(
 		params.lang,
 		'pages.results.completedBy',
@@ -14,16 +24,18 @@ export default async function Results({ params }: { params: ILocale }) {
 	);
 
 	return (
-		<table className={clsx('container', styles.table)}>
-			<tbody>
-				<tr className={styles.upper}>
-					<th>{COMPLETEDBY}</th>
-					<th>{TASKNAME}</th>
-					<th>{TIMEELAPSED}</th>
-					<th>{MARK}</th>
-				</tr>
-				<Entities />
-			</tbody>
-		</table>
+		<div className={clsx('container', styles.table)}>
+			<table>
+				<tbody>
+					<tr className={styles.upper}>
+						<th>{COMPLETEDBY}</th>
+						<th>{TASKNAME}</th>
+						<th>{TIMEELAPSED}</th>
+						<th>{MARK}</th>
+					</tr>
+					<Entities params={searchParams} />
+				</tbody>
+			</table>
+		</div>
 	);
 }

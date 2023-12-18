@@ -22,7 +22,11 @@ export default async function ProblemPreview({
 			<ProblemThumb className={styles.prob_prev} problem={problem} />
 			<div className={styles.description}>
 				<h1>{problem.title}</h1>
-				<p>{problem.description}</p>
+				<p>
+					{process.env.NODE_ENV == 'development'
+						? problem.publicId
+						: problem.description}
+				</p>
 			</div>
 		</>
 	);

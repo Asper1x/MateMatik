@@ -1,6 +1,7 @@
 export interface INavbarPage {
 	transPath: string;
 	path: string;
+	prefetch?: boolean;
 }
 
 export const NavbarPages: INavbarPage[] = [
@@ -11,5 +12,11 @@ export const NavbarPages: INavbarPage[] = [
 	{
 		transPath: 'nav.myResults',
 		path: '/results',
+		prefetch: false,
+	},
+	{
+		transPath: 'nav.top10Results',
+		path: '/results?top10=true',
+		prefetch: false,
 	},
 ];

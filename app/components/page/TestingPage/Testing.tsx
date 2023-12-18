@@ -12,6 +12,7 @@ import { useRouter } from 'next/navigation';
 import { saveTesting } from '@/app/hooks/storage/useStorage';
 import Mexp from 'math-expression-evaluator';
 import { CalcUtils } from '@/lib/utils/test/CalcUtils';
+import { ERROR_COST, THRUTH_COST } from '@/app/[lang]/config/calc-coeffs';
 
 const mexp = new Mexp();
 
@@ -34,11 +35,11 @@ export default function TestingPage({
 		mark: CalcUtils.getMark(testing.answers) ?? 0,
 		qCost: 0,
 	});
-	const { refresh } = useRouter();
+	const { push } = useRouter();
 	const action = async (data: FormData) => {
 		await ASendAnswer(testing.id, test[testing.answers.length - 1], data);
 		if (testing.answers.length >= test.length) {
-			refresh();
+			push(`/testing/${testing.id}`);
 			return;
 		}
 	};
@@ -46,12 +47,18 @@ export default function TestingPage({
 	const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		const formData = new FormData(event.currentTarget);
 		const answer = formData.get('answer')?.toString();
-		if (answer !== undefined && !Number.isNaN(parseFloat(answer))) {
+		if (
+			answer !== undefined &&
+			!Number.isNaN(parseFloat(answer)) &&
+			testing.answers.length < test.length
+		) {
 			let coeff: number;
 
 			coeff =
 				//@ts-ignore
-				CalcUtils.round(mexp.eval(currentTest)) == answer ? 1 : -1;
+				CalcUtils.round(mexp.eval(currentTest)) == answer
+					? THRUTH_COST
+					: ERROR_COST;
 
 			setProgress((prev) => ({ qCost: coeff, mark: prev.mark + coeff }));
 			testing.answers.push(`${currentTest}=${answer}`);

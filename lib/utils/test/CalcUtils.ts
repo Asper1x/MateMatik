@@ -1,3 +1,5 @@
+import { ERROR_COST, THRUTH_COST } from '@/app/[lang]/config/calc-coeffs';
+
 export const CalcUtils = {
 	map(
 		x: number,
@@ -23,8 +25,8 @@ export const CalcUtils = {
 
 	getMark(answers: string[]) {
 		return (
-			this.getCorrect(answers) +
-			(answers.length - this.getCorrect(answers)) * -1
+			this.getCorrect(answers) * THRUTH_COST +
+			(answers.length - this.getCorrect(answers)) * ERROR_COST
 		);
 	},
 

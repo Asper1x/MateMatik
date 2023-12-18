@@ -63,9 +63,14 @@ export async function ARegister(id: string) {
 	});
 }
 
-export async function AGetTesting(ids: string[]) {
+export async function AGetTesting(ids: string[], top10?: boolean) {
 	return prisma.testing.findMany({
 		where: { id: { in: ids } },
+		take: top10 !== undefined ? 10 : undefined,
 		include: { problem: true },
+		orderBy: [
+			{ updated: top10 !== undefined ? undefined : 'desc' },
+			{ mark: 'desc' },
+		],
 	});
 }

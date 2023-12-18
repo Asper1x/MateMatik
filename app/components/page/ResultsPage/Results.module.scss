@@ -1,8 +1,7 @@
 .table {
-	box-shadow: var(--border-shadow);
+	padding: 0;
 	margin-top: 10px;
 	margin-bottom: 10px;
-	border-radius: var(--border-radius);
 
 	.upper {
 		th {
@@ -10,8 +9,24 @@
 		}
 	}
 
-	td,
-	th {
-		padding: 5px 2px 5px 2px;
+	table {
+		width: 100%;
+
+		td,
+		th {
+			text-align: center;
+			padding: 15px 2px 15px 2px;
+		}
+
+		tr {
+			&:nth-child(odd) {
+				background-color: rgb(var(--background-secondary-rgb));
+			}
+		}
+	}
+
+	button {
+		gap: 0.5rem;
+		font-weight: bolder;
 	}
 }

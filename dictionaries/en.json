@@ -6,7 +6,8 @@
 	"nav": {
 		"greeting": "Hello",
 		"problems": "Problems",
-		"myResults": "My results"
+		"myResults": "My results",
+		"top10Results": "Top 10 results"
 	},
 
 	"errors": {
